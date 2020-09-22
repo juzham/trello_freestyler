@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: auto/test
-    steps:
-      - uses: actions/checkout@v2
-      - run: auto/style-check
+      - name: Run Tests        
+        run: auto/test
+      - name: Call the Cops
+        run: auto/style-check
   build:
     needs: house-keeping
     name: Build + Publish Gem
