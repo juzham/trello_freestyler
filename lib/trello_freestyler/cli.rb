@@ -18,7 +18,7 @@ module TrelloFreestyler
                          TZInfo::Timezone.get('Australia/Melbourne'))
 
       opt_parser = OptionParser.new do |opts|
-        opts.banner = 'Usage: ruby ./lib/trello_freestyler.rb -k <KEY> -t <TOKEN> -b <BOARD_ID>'
+        opts.banner = 'Usage: trello_freestyler -k <KEY> -t <TOKEN> -b <BOARD_ID>'
 
         opts.on('-k', '--key KEY', String, 'REQUIRED - Developer Trello Key') do |i|
           args.key = i
