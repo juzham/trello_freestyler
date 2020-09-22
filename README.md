@@ -167,9 +167,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 Can use this gem to bump versions
 ```bash
 gem install gem-release
+$ gem bump --version 1.1.1 # bumps to the specified version
 $ gem bump --version minor # bumps to the next minor version
 $ gem bump --version major # bumps to the next major version
-$ gem bump --version 1.1.1 # bumps to the specified version
 ```
 
 ## Contributing
