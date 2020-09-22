@@ -1,0 +1,36 @@
+require:
+  - rubocop/formatter/emoji_formatter
+
+AllCops:
+  TargetRubyVersion: 2.7.1
+  NewCops: enable
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 100
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/LineLength:
+  Max: 130
+
+Metrics/MethodLength:
+  Max: 25
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false

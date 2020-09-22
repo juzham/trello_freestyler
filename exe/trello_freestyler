@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-puts "nothing."
+# frozen_string_literal: true
+
+puts 'nothing.'
