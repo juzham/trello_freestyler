@@ -11,7 +11,8 @@ jobs:
     name: Keep it tight and stylie
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository code
+        uses: actions/checkout@v2
       - name: Run Tests        
         run: auto/test
       - name: Call the Cops
