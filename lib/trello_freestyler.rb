@@ -8,15 +8,15 @@ require 'tty-spinner'
 module TrelloFreestyler
   def self.run
     if ARGV.length.positive?
-      spinners = TTY::Spinner::Multi.new("[:spinner] Trello Freestyler")
-      sp1 = spinners.register "[:spinner] Validate input options"
+      spinners = TTY::Spinner::Multi.new('[:spinner] Trello Freestyler')
+      sp1 = spinners.register '[:spinner] Validate input options'
       sp1.auto_spin
 
       options = TrelloFreestyler::Cli.parse(ARGV)
 
       sp1.success
 
-      sp2 = spinners.register "[:spinner] Download and clean trello data"
+      sp2 = spinners.register '[:spinner] Download and clean trello data'
       sp3 = spinners.register "[:spinner] Output data to: '#{options.output}'"
       sp2.auto_spin
       sp3.auto_spin
