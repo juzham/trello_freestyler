@@ -160,17 +160,13 @@ They form the minimum requirements to work out which member was on which card at
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Sets up the docker development environment
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-Can use this gem to bump versions
 ```bash
-gem install gem-release
-$ gem bump --version 1.1.1 # bumps to the specified version
-$ gem bump --version minor # bumps to the next minor version
-$ gem bump --version major # bumps to the next major version
+  ./auto/dev
 ```
+
+Github actions automatically deploy new gem version
 
 ## Contributing
 

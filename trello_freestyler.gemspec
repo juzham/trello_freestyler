@@ -18,15 +18,15 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = 'https://github.com/juzham/trello_freestyler'
   spec.metadata['changelog_uri'] = 'https://github.com/juzham/trello_freestyler/CHANGELOG.md'
 
-  spec.add_runtime_dependency 'rest-client'
-  spec.add_runtime_dependency 'tty-spinner'
-  spec.add_runtime_dependency 'tzinfo'
+  spec.add_runtime_dependency 'rest-client', '~> 2.1'
+  spec.add_runtime_dependency 'tty-spinner', '~> 0.9'
+  spec.add_runtime_dependency 'tzinfo', '~> 2.0'
 
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-emoji'
-  spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'rake', '~> 12.3'
+  spec.add_development_dependency 'rspec', '~> 3.9'
+  spec.add_development_dependency 'rubocop', '~> 0.91'
+  spec.add_development_dependency 'rubocop-emoji', '~> 0.1'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.43'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
