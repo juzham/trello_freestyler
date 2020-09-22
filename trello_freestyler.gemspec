@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "trello_freestyler"
   spec.version       = TrelloFreestyler::VERSION
   spec.authors       = ["Justin Hamman"]
-  spec.email         = ["justin.hamman@rea-group.com"]
+  spec.email         = ["justinhamman@gmail.com"]
 
   spec.summary       = %q{Uses the Trello API to dump json line files for a Trello board and its actions.}
   spec.description   = %q{Built so data can be easily ingested into BigQuery.}
