@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    trello_freestyler (0.1.0)
+    trello_freestyler (0.2.0)
       rest-client
       tty-spinner
       tzinfo

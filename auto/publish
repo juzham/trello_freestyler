@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+echo '--- Setting correct version number'
+
+GEM_NAME="trello_freestyler"
+PATCH_LEVEL=$(gem search -r -s https://rubygems.org/ $GEM_NAME | grep "^$GEM_NAME (" | sed 's/^.*(0.0.//' | sed 's/,.*//g' | sed 's/)//' | tr -cd "[:digit:]")
+
+export TRELLO_FREESTYLER_BUILD_VERSION="0.0.$((PATCH_LEVEL + 1))"
+
+echo '--- Publishing gem'
+echo $CONSUMER_DATA_SLACK_LOGGER_BUILD_VERSION
+
+# bundle exec rake publish

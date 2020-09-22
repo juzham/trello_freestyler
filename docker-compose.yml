@@ -1,0 +1,14 @@
+version: '2'
+
+volumes:
+  ruby2.7-gem-cache:
+    external: true
+
+services:
+  dev:
+    image: ruby:2.7.1
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ruby2.7-gem-cache:/usr/local/bundle
+    entrypoint: ["/bin/bash", "-c"]
