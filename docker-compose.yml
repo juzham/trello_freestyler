@@ -11,4 +11,6 @@ services:
     volumes:
       - .:/app
       - ruby2.7-gem-cache:/usr/local/bundle
+    environment:
+      GEM_HOST_API_KEY:
     entrypoint: ["/bin/bash", "-c"]
