@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Uses the Trello API to dump json line files for a Trello board and its actions.'
   spec.description   = 'Built so trello data can be easily ingested into BigQuery.'
-  spec.homepage      = 'http://rubygems.org/gems/trello_freestyler'
+  spec.homepage      = 'https://rubygems.org/gems/trello_freestyler'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
