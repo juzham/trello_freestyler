@@ -1,8 +1,15 @@
 # TrelloFreestyler
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/trello_freestyler`. To experiment with that code, run `bin/console` for an interactive prompt.
+Uses the Trello API to dump json line files for a Trello board and its actions.
+Built with the intention of ingesting the files into BigQuery but they can be used as is.
+For BigQuery ingestion we need json line files and they need to be scrubbed of any empty objects.
+(BigQuery will not ingest an empty json object unless you also supply a schema, which is a hassle and also means we won't auto load new columns that Trello create)
 
-TODO: Delete this and the text above, and describe your gem
+Two key trello concepts are exported
+- `cards.jsonl`
+- `actions.jsonl`
+
+From the above, one can do analysis on how long the card has spent in each column and which trello user was on the card at any point in time.
 
 ## Installation
 
@@ -22,7 +29,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+trello_freestyler --help
+```
 
 ## Development
 
