@@ -2,20 +2,14 @@
 
 require 'optparse'
 require 'tzinfo'
+require_relative 'options'
 
 module TrelloFreestyler
   class Cli
-    Options = Struct.new(:key, :token, :url, :board_id, :action_types, :output, :timezone)
     # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Layout/LineLength
     def self.parse(options)
       # DEFAULTS
-      args = Options.new(nil,
-                         nil,
-                         'https://api.trello.com/1',
-                         nil,
-                         'addMemberToCard,removeMemberFromCard,createCard,moveCardFromBoard,moveCardToBoard,updateCard',
-                         '.output',
-                         TZInfo::Timezone.get('Australia/Melbourne'))
+      args = Options.new(nil, nil, nil, nil, nil, nil, nil)
 
       opt_parser = OptionParser.new do |opts|
         opts.banner = 'Usage: trello_freestyler -k <KEY> -t <TOKEN> -b <BOARD_ID>'

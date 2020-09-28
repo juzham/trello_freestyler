@@ -9,14 +9,14 @@ RSpec.describe TrelloFreestyler::Cli do
       input = ['-k', 'key111',
                '-t', 'token111',
                '-b', 'board_id111']
-      expected = TrelloFreestyler::Cli::Options.new(
+      expected = TrelloFreestyler::Options.new(
         'key111',
         'token111',
         'https://api.trello.com/1',
         'board_id111',
         'addMemberToCard,removeMemberFromCard,createCard,moveCardFromBoard,moveCardToBoard,updateCard',
         '.output',
-        TZInfo::Timezone.get('Australia/Melbourne')
+        'Australia/Melbourne'
       )
       expect(described_class.parse(input)).to eq(expected)
     end
@@ -29,14 +29,14 @@ RSpec.describe TrelloFreestyler::Cli do
                '-a', 'addMemberToCard,removeMemberFromCard',
                '-o', '.dump',
                '-z', 'Australia/Sydney']
-      expected = TrelloFreestyler::Cli::Options.new(
+      expected = TrelloFreestyler::Options.new(
         'key111',
         'token111',
         'https://api.trello.com/2',
         'board_id111',
         'addMemberToCard,removeMemberFromCard',
         '.dump',
-        TZInfo::Timezone.get('Australia/Sydney')
+        'Australia/Sydney'
       )
       expect(described_class.parse(input)).to eq(expected)
     end

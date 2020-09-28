@@ -12,3 +12,5 @@
 
 .output
 trello_freestyle*.gem
+test_run.sh
+test_run.rb

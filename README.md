@@ -30,7 +30,27 @@ Or install it yourself as:
 ## Usage
 
 ```bash
-    trello_freestyler --key <TRELLO_KEY> --token <TRELLO_TOKEN> --board_id <TRELLO_BOARD_ID>
+  trello_freestyler --key <TRELLO_KEY> --token <TRELLO_TOKEN> --board_id <TRELLO_BOARD_ID>
+```
+
+or
+
+```ruby
+require 'trello_freestyler'
+
+options = TrelloFreestyler::Options.new(
+  key = <YOUR TRELLO DEVELOPER TOKEN>,
+  token = <YOUR TRELLO TOKEN>,
+  url = nil, # use default trello api url
+  board_id = <YOUR TRELLO BOARD ID>,
+  action_types = nil, # get default trello actions
+  output = nil, # use default output folder .output
+  timezone = nil # use default timezone for data stamping folder
+)
+
+# Will get card and action trello data and export it to options.output
+TrelloFreestyler::Main.dump(options)
+
 ```
 
 ## Output
