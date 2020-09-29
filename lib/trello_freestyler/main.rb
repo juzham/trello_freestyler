@@ -13,6 +13,8 @@ module TrelloFreestyler
     # rubocop:disable Metrics/AbcSize
     def self.dump(options)
       client = TrelloFreestyler::Client.new(options.key, options.token, options.url)
+      execution_datetime = Time.now.getlocal(options.timezone.current_period.offset.utc_total_offset)
+      execution_date = Date.parse(execution_datetime.strftime('%Y/%m/%d')).to_s
 
       response_cards = client.cards(options.board_id)
       card_dump = parse_cards(response_cards.body)
@@ -26,24 +28,16 @@ module TrelloFreestyler
         end.flatten
       )
 
-      basename = init_output_basename(options.output, options.timezone)
-      export(card_dump.raw, basename.join('cards.jsonl').to_s)
-      export(actions_dump.raw, basename.join('actions.jsonl').to_s)
+      basename = init_output_basename(options.output, execution_date)
+      export_with_stamp(card_dump.raw, basename.join('cards.jsonl').to_s, execution_datetime, execution_date)
+      export_with_stamp(actions_dump.raw, basename.join('actions.jsonl').to_s, execution_datetime, execution_date)
     end
     # rubocop:enable Metrics/AbcSize
 
-    def self.init_output_basename(base, timezone)
-      time = Time.now.getlocal(timezone.current_period.offset.utc_total_offset)
-      date = Date.parse(time.strftime('%Y/%m/%d')).to_s
+    def self.init_output_basename(base, date)
       base = Pathname.new(base).join(date)
       Pathname.new(base).mkpath
       base
-    end
-
-    def self.full_filename(base, filename, timezone)
-      time = Time.now.getlocal(timezone.current_period.offset.utc_total_offset)
-      date = Date.parse(time.strftime('%Y/%m/%d')).to_s
-      Pathname.new(base).join(date).join(filename).to_s
     end
 
     def self.parse_cards(raw_text)
@@ -63,9 +57,13 @@ module TrelloFreestyler
       end
     end
 
-    def self.export(dump, to)
+    def self.export_with_stamp(dump, to, execution_datetime, execution_date)
       File.open(to, 'w') do |f|
-        dump.each { |row| f.puts row.to_json }
+        dump.each do |row|
+          row[:execution_datetime] = execution_datetime
+          row[:execution_local_date] = execution_date
+          f.puts row.to_json
+        end
       end
     end
   end
