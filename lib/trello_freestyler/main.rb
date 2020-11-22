@@ -60,7 +60,7 @@ module TrelloFreestyler
     def self.export_with_stamp(dump, to, execution_datetime, execution_date)
       File.open(to, 'w') do |f|
         dump.each do |row|
-          row[:execution_datetime] = execution_datetime
+          row[:execution_datetime] = execution_datetime.strftime('%Y-%m-%d %H:%M:%S.%L %:z')
           row[:execution_local_date] = execution_date
           f.puts row.to_json
         end
